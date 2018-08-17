@@ -15,8 +15,10 @@ public:
 
 	void draw(std::vector<std::vector<uint_8>> aMatrix);
 	
-	enum EventTypes { NON, PAUSE, CLOSE };
+	enum EventTypes { NON, PAUSE, CLOSE, LEARN, TEST, CLASS_DRAW };
 	EventTypes getEvents();
+
+	sint_16 getClassNumber();
 
 private:
 	sf::RenderWindow mWindow;
@@ -30,6 +32,8 @@ private:
 
 	uint_8 mDistanceLength;
 	uint_8 mDistanceWidth;
+
+	sint_16 mCurrentClass;
 };
 
 #endif // READER_H

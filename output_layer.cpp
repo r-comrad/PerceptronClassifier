@@ -14,7 +14,6 @@ OutputLayer::~OutputLayer()
 Args
 OutputLayer::process(const Args &aInp)
 {
-	Args resilt;
 	uint_32 num = 0;
 	for (uint_32 i = 1; i < aInp.size(); ++i)
 	{
@@ -23,7 +22,7 @@ OutputLayer::process(const Args &aInp)
 			num = i;
 		}
 	}
-	return resilt;
+	return { double(num) };
 }
 //--------------------------------------------------------------------------------
 Args

@@ -54,13 +54,13 @@ Perceptron::changeWeights(double aAnswer)
 double
 Perceptron::activationFunction(double aS) const
 {
-	return 1 / (1 + exp(-aS));
+	return 1. / (1. + exp(-aS));
 }
 //--------------------------------------------------------------------------------
 double
 Perceptron::dActivationFunction(double aS) const
 {
-	return activationFunction(aS) * (1 - activationFunction(aS));
+	return activationFunction(aS) * (1. - activationFunction(aS));
 }
 //--------------------------------------------------------------------------------
 const std::vector<double>&

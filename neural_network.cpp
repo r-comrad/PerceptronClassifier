@@ -50,21 +50,29 @@ NeuralNetwork::process(const Args &aInp)
 void
 NeuralNetwork::correct(uint_32 aAns)
 {
-	Args answer = { double(aAns) };
-	for (uint_16 i = mLayers.size() - 1; i >= 0; --i)
+	Args answer{ double(aAns) };
+	for (sint_16 i = mLayers.size() - 1; i >= 0; --i)
 	{
-		Args answer = (mLayers[i])->correct(answer);
+		answer = (mLayers[i])->correct(answer);
 	}
 }
 //--------------------------------------------------------------------------------
 std::vector<std::vector<uint_8>>
 NeuralNetwork::getPresentation(uint_32 aLayer, uint_32 aNeurin) const
 {
-	std::vector<std::vector<uint_8>> result;
+	std::vector<std::vector<uint_8>> result(1);
 	const std::vector<double>& temp = mLayers[aLayer]->getPresentation(aNeurin);
+
+	double mn = *(std::min_element(temp.begin(), temp.end()));
+	double mx = *(std::max_element(temp.begin(), temp.end()));
+
 	for (const auto& i : temp)
 	{
-		result.emplace_back(i * 255);
+		result.back().emplace_back((i - mn) / (mx - mn) * 255);
+		if (result.back().size() % uint_32(std::sqrt(temp.size())) == 0)
+		{
+			result.resize(result.size() + 1);
+		}
 	}
 	return result;
 }
