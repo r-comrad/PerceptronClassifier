@@ -11,7 +11,7 @@ NeuralNetwork::NeuralNetwork(std::vector<LayerType> aLayersType,
 	{
 		if (i == NORMALIZE)
 		{
-			mLayers.emplace_back(new NormalizeLayer());
+			mLayers.emplace_back(new NormalizeLayer(250));
 		}
 		else if (i == PERCEPTRON)
 		{
@@ -23,7 +23,7 @@ NeuralNetwork::NeuralNetwork(std::vector<LayerType> aLayersType,
 		}
 		else if (i == OUTPUT)
 		{
-			mLayers.emplace_back(new OutputLayer());
+			mLayers.emplace_back(new OutputLayer(mLayers.back()->size()));
 		}
 	}
 }
@@ -36,7 +36,7 @@ NeuralNetwork::~NeuralNetwork()
 	}
 }
 //--------------------------------------------------------------------------------
-uint_32
+uint_16
 NeuralNetwork::process(const Args &aInp)
 {
 	Args input = aInp;
@@ -48,7 +48,7 @@ NeuralNetwork::process(const Args &aInp)
 }
 //--------------------------------------------------------------------------------
 void
-NeuralNetwork::correct(uint_32 aAns)
+NeuralNetwork::correct(uint_16 aAns)
 {
 	Args answer{ double(aAns) };
 	for (sint_16 i = mLayers.size() - 1; i >= 0; --i)

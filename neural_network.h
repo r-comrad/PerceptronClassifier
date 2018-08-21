@@ -23,8 +23,8 @@ public:
 		std::list<std::pair<uint_32, uint_32>> aLayersConnexions);
 	~NeuralNetwork();
 
-	uint_32 process	(const Args &aInp);
-	void	correct	(uint_32 aAns);
+	uint_16 process	(const Args &aInp);
+	void	correct	(uint_16 aAns);
 
 	std::vector<std::vector<uint_8>> 
 		getPresentation(uint_32 aLayer, uint_32 aNeurin) const;

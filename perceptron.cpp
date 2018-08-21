@@ -9,11 +9,15 @@ Perceptron::Perceptron(int aDimension, double aLearningRate) :
 	mWeights			(aDimension),
 	mLearningRate		(aLearningRate)
 {
+	//srand(time(0));
+
 	for (auto& i : mWeights)
 	{
 		i = (rand() % 1000 - 500) / 1000.;
+		//i = 0;
 	}
 	mOffset = (rand() % 1000 - 500) / 1000.;
+	//mOffset = 0;
 }
 //--------------------------------------------------------------------------------
 double

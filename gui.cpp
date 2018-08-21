@@ -17,6 +17,8 @@ GUI::GUI() :
 		mDistanceWidth		(2)		
 {
 	mRectangle.setSize(sf::Vector2f(mRectLength, mRectWidth));
+	mWindow.clear(sf::Color(50, 50, 125, 125));
+	mWindow.display();
 }
 //--------------------------------------------------------------------------------
 GUI::~GUI()

@@ -55,7 +55,7 @@ MNISTReader::~MNISTReader()
 }
 //--------------------------------------------------------------------------------
 void
-MNISTReader::read(uint_32 aCount)
+MNISTReader::generate(uint_32 aCount)
 {
 	//if (aCount > mNumberOfImages - mReadCount)
 	//	aCount = mNumberOfImages - mReadCount;

@@ -18,6 +18,8 @@ public:
 	virtual Args process (const Args &aInp);
 	virtual Args correct (const Args &aInp);
 
+	virtual uint_16 size() const;
+
 	virtual const std::vector<double>& getPresentation(uint_32 aNeurin) const;
 
 private:

@@ -5,13 +5,13 @@
 
 #include "reader.h"
 
-class MNISTReader : public Reader
+class MNISTReader : public TestGenerator
 {
 public:
 	MNISTReader(std::string aTestFileName, std::string aLabelFileName);
 	~MNISTReader();
 
-	virtual void read(uint_32 aCount = 1);
+	virtual void generate(uint_32 aCount = 1);
 
 	virtual bool isEnd() const;
 

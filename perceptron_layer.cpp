@@ -7,7 +7,10 @@
 PerceptronLayer::PerceptronLayer(uint_32 aInputsNumber, uint_32 aNeuronsCount) :
 	mNeurons		(aNeuronsCount, Perceptron(aInputsNumber))
 {
-
+	//for (uint_32 i = 0; i < aNeuronsCount; ++i)
+	//{
+	//	mNeurons.emplace_back(Perceptron(aInputsNumber));
+	//}
 }
 //--------------------------------------------------------------------------------
 PerceptronLayer::~PerceptronLayer()
@@ -37,6 +40,12 @@ PerceptronLayer::correct(const Args &aInp)
 
 	// TODO:
 	return {};
+}
+//--------------------------------------------------------------------------------
+uint_16
+PerceptronLayer::size() const
+{
+	return mNeurons.size();
 }
 //--------------------------------------------------------------------------------
 const std::vector<double>&

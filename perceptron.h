@@ -5,13 +5,14 @@
 
 #include <vector>
 #include <cstdlib>
+#include <ctime>
 
 #include "domain.h"
 
 class Perceptron
 {
 public:
-	Perceptron(int aDimension, double aLearningRate = 0.3);
+	Perceptron(int aDimension, double aLearningRate = 0.4);
 
 	double	process			(const Args &aInp);
 	double	getOutput		() const;

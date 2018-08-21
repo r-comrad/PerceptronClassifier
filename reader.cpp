@@ -1,13 +1,13 @@
 #include "reader.h"
 
 //--------------------------------------------------------------------------------
-//								Reader implementation							//
+//							Test generator implementation						//
 //--------------------------------------------------------------------------------
 
-Reader::Reader()
+TestGenerator::TestGenerator()
 {}
 //--------------------------------------------------------------------------------
-Reader::~Reader()
+TestGenerator::~TestGenerator()
 {}
 //--------------------------------------------------------------------------------
 //bool
@@ -17,20 +17,20 @@ Reader::~Reader()
 //}
 //--------------------------------------------------------------------------------
 void
-Reader::pop()
+TestGenerator::next()
 {
 	mTestValues.pop_front();
 	mLabelValues.pop_front();
 }
 //--------------------------------------------------------------------------------
 std::vector<uint_8>
-Reader::getTest() const
+TestGenerator::getTest() const
 {
 	return mTestValues.front();
 }
 //--------------------------------------------------------------------------------
 std::vector<std::vector<uint_8>>
-Reader::getMatrix(uint_8 aN, uint_8 aM) const
+TestGenerator::getMatrix(uint_8 aN, uint_8 aM) const
 {
 	std::vector<std::vector<uint_8>> result;
 
@@ -43,8 +43,8 @@ Reader::getMatrix(uint_8 aN, uint_8 aM) const
 	return result;
 }
 //--------------------------------------------------------------------------------
-uint_8
-Reader::getLabel() const
+uint_16
+TestGenerator::getLabel() const
 {
 	return mLabelValues.front();
 }
