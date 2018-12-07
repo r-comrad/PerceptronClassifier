@@ -12,12 +12,13 @@
 #include "layer.h"
 #include "perceptron_layer.h"
 #include "normalize_layer.h"
-#include "output_layer.h"
+#include "discrete_output_layer.h"
+#include "analog_output_layer.h"
 
 class NeuralNetwork
 {
 public:
-	enum LayerType {NORMALIZE, PERCEPTRON, OUTPUT};
+	enum LayerType {NORMALIZE, PERCEPTRON, DISCRETE_OUTPUT, ANALOG_OUTPUT};
 
 	NeuralNetwork(std::vector<LayerType> aLayersType, 
 		std::list<std::pair<uint_32, uint_32>> aLayersConnexions);

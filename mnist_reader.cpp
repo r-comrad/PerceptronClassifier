@@ -60,9 +60,20 @@ MNISTReader::generate(uint_32 aCount)
 	//if (aCount > mNumberOfImages - mReadCount)
 	//	aCount = mNumberOfImages - mReadCount;
 
-	for (uint_32 i = 0; i < aCount; ++i)
+	if (mTestValues.size() == 0)
 	{
 		mTestValues.emplace_back(std::vector<uint_8 >(0));
+		mLabelValues.emplace_back(0);
+	}
+	else
+	{
+		mTestValues.back().clear();
+	}
+
+	for (uint_32 i = 0; i < aCount; ++i)
+	{
+		
+		//mTestValues.emplace_back(std::vector<uint_8 >(0));
 		mReadCount++;
 		unsigned char temp;
 
@@ -76,7 +87,8 @@ MNISTReader::generate(uint_32 aCount)
 		}
 
 		mLabelsFile.read((char*)&temp, sizeof(temp));
-		mLabelValues.emplace_back(temp);
+		//mLabelValues.emplace_back(temp);
+		mLabelValues.back() = temp;
 	}
 }
 //--------------------------------------------------------------------------------

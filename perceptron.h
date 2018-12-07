@@ -12,7 +12,7 @@
 class Perceptron
 {
 public:
-	Perceptron(int aDimension, double aLearningRate = 0.4);
+	Perceptron(int aDimension, double aLearningRate = 0.3);
 
 	double	process			(const Args &aInp);
 	double	getOutput		() const;

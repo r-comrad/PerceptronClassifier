@@ -11,7 +11,7 @@ NeuralNetwork::NeuralNetwork(std::vector<LayerType> aLayersType,
 	{
 		if (i == NORMALIZE)
 		{
-			mLayers.emplace_back(new NormalizeLayer(250));
+			mLayers.emplace_back(new NormalizeLayer(255));
 		}
 		else if (i == PERCEPTRON)
 		{
@@ -21,9 +21,13 @@ NeuralNetwork::NeuralNetwork(std::vector<LayerType> aLayersType,
 			mLayers.emplace_back(
 				new PerceptronLayer(settings.first, settings.second));
 		}
-		else if (i == OUTPUT)
+		else if (i == DISCRETE_OUTPUT)
 		{
-			mLayers.emplace_back(new OutputLayer(mLayers.back()->size()));
+			mLayers.emplace_back(new DiscreteOutputLayer(mLayers.back()->size()));
+		}
+		else if (i == ANALOG_OUTPUT)
+		{
+			mLayers.emplace_back(new AnalogOutputLayer(mLayers.back()->size()));
 		}
 	}
 }
